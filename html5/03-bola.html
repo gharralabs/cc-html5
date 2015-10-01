@@ -12,25 +12,46 @@
             raio: 5,
             velocidade : 20
         };
+
+        var temporizador = {
+            inicio : 0,
+            decorrido : {
+                millis: 0,
+                segundos : 0
+            },
+
+            iniciar: function () {
+                inicio = new Date().getTime();
+            },
+
+            parar: function () {
+                var termino = new Date().getTime();
+                this.decorrido.millis = termino - inicio;
+                this.decorrido.segundos = this.decorrido.millis / 1000;
+            },
+        };
         
         window.onload = function () {
             game.canvas = document.getElementById('gameCanvas');
             game.context = game.canvas.getContext('2d');
 
+            temporizador.iniciar();
             requestAnimationFrame(mexerBola);
-
         }
 
 
         function mexerBola()
         {
-            
+            temporizador.parar();
+
             game.context.clearRect(0, 0, game.canvas.width, game.canvas.height);
             game.context.beginPath();
             game.context.arc(bola.x, bola.y, bola.raio, 0, Math.PI * 2);
             game.context.fill();
-            bola.x += bola.velocidade;
+            bola.x += bola.velocidade * temporizador.decorrido.segundos;
 
+
+            temporizador.iniciar();
             requestAnimationFrame(mexerBola);
         }
 
