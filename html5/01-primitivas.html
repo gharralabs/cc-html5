@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+        window.onload = function() {
+            var canvas = document.getElementById('gameCanvas');
+            var context = canvas.getContext('2d');
+            context.fillStyle = 'red';
+            context.fillRect(300, 200, 100, 100);
+
+            context.lineWidth = 3;
+            context.strokeStyle = 'blue';
+            context.strokeRect(300, 200, 100, 100);
+
+            context.beginPath();
+            context.moveTo(75, 250);
+            context.lineTo(150, 50);
+            context.lineTo(225, 250);
+            context.lineTo(50, 120);
+            context.lineTo(250, 120);
+            context.lineTo(75, 250);
+
+            context.lineWidth = 2;
+            context.strokeStyle = 'green';
+            context.stroke();
+            context.closePath();
+
+            context.beginPath();
+            context.arc(100, 400, 100, 0, Math.PI, true);            
+            context.arc(350, 400, 100, 0, Math.PI, false);
+            context.fill();
+            context.closePath();            
+            
+        }
+    </script>
+
+    <style>
+        canvas {
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"
+            width="640"
+            height="480">
+        Seu navegador não suporta a tag Canvas do HTML5.
+    </canvas>
+</body>
+</html>

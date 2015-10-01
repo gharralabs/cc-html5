@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+        var game = {};
+
+        var bola = {
+            x: 20,
+            y: 100,
+            raio: 5,
+            velocidade : 20
+        };
+        
+        window.onload = function () {
+            game.canvas = document.getElementById('gameCanvas');
+            game.context = game.canvas.getContext('2d');
+
+            requestAnimationFrame(mexerBola);
+
+        }
+
+
+        function mexerBola()
+        {
+            
+            game.context.clearRect(0, 0, game.canvas.width, game.canvas.height);
+            game.context.beginPath();
+            game.context.arc(bola.x, bola.y, bola.raio, 0, Math.PI * 2);
+            game.context.fill();
+            bola.x += bola.velocidade;
+
+            requestAnimationFrame(mexerBola);
+        }
+
+    </script>
+</head>
+<body>
+    <canvas width="640"
+            height="480"
+            id="gameCanvas">
+        Seu navegador não suporta Canvas HTML5.
+    </canvas>
+</body>
+</html>
