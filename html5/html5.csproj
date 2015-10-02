@@ -68,6 +68,9 @@
     <Content Include="01-primitivas.html" />
     <Content Include="02-imagens.html" />
     <Content Include="03-bola.html" />
+    <Content Include="04-animacao-teste.html" />
+    <Content Include="04-animacao.js" />
+    <Content Include="04-bola.js" />
     <Content Include="imagens\explosao.png" />
     <Content Include="imagens\ovni.png" />
     <Content Include="Web.config" />
