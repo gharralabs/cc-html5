@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="teclado.js"></script>
+    <script>
+
+        var game = {};
+
+        var posicao = 0;
+        
+        var teclado = new Teclado(document);
+
+        window.onload = function () {
+            
+            var canvas = document.getElementById('gameCanvas');
+            game.context = canvas.getContext('2d');
+            desenharPersonagem();
+            var teclado = new Teclado(document);
+            requestAnimationFrame(animar);
+
+        }
+
+
+        function animar()
+        {
+            if (teclado.pressionada(SETA_ESQUERDA))
+                posicao -= 10;
+            else if (teclado.pressionada(SETA_DIREITA))
+                posicao += 10;
+
+            desenharPersonagem();
+            requestAnimationFrame(animar);
+        }
+
+        function desenharPersonagem()
+        {
+            game.context.clearRect(0, 0,
+                game.context.canvas.width,
+                game.context.canvas.height);
+
+            game.context.fillRect(posicao, 100, 20, 50);
+        }
+
+
+
+
+
+    </script>
+</head>
+<body>
+    <canvas id="gameCanvas"
+            width="640"
+            height="480"></canvas>
+</body>
+</html>

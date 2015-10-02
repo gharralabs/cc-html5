@@ -74,6 +74,8 @@
     <Content Include="imagens\explosao.png" />
     <Content Include="imagens\ovni.png" />
     <Content Include="teclado-teste-01.html" />
+    <Content Include="teclado-teste-02.html" />
+    <Content Include="teclado.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
