@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script>
+        var game = {};
+        var personagem = {x : 100, y : 100 };
+        var context;
+
+        window.onload = function () {
+
+            var canvas = document.getElementById('gameCanvas');
+            game.context = canvas.getContext('2d');
+
+            desenharPersonagem();
+
+            document.addEventListener('keydown', function (evento) {
+                if(evento.keyCode == 37)
+                {
+                    personagem.x -= 37;
+                    desenharPersonagem();
+                }
+                else if (evento.keyCode == 39) {
+                    personagem.x += 37;
+                    desenharPersonagem();
+                }
+            });
+        }
+
+        function desenharPersonagem() {
+            var ctx = game.context;
+            ctx.clearRect(0, 0,
+                ctx.canvas.width, ctx.canvas.height);
+
+            ctx.fillRect(personagem.x, personagem.y,
+                50, 50);
+        }
+    </script>
+</head>
+<body>
+    <canvas id="gameCanvas"
+            width="640"
+            height="480">
+
+    </canvas>
+</body>
+</html>
