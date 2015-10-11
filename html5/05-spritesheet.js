@@ -1,4 +1,4 @@
-﻿function Spritesheet(context, imagem, linhas, colunas) {
+function Spritesheet(context, imagem, linhas, colunas) {
     this.context = context;
     this.imagem = imagem;
     this.numLinhas = linhas;
@@ -33,11 +33,14 @@ Spritesheet.prototype = {
         var larguraQuadro = this.imagem.width / this.numColunas;
         var alturaQuadro = this.imagem.height / this.numLinhas;
 
-
+        var xClippingOffset = larguraQuadro * this.coluna;
+        var yClippingOffset = alturaQuadro * this.linha;
+        
         this.context.drawImage(this.imagem,
-            larguraQuadro * this.coluna, alturaQuadro * this.linha,
+            xClippingOffset, yClippingOffset,
             larguraQuadro, alturaQuadro,
             x, y,
             larguraQuadro, alturaQuadro);
+
     }
 }

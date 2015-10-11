@@ -72,14 +72,17 @@
     <Content Include="04-animacao.js" />
     <Content Include="04-bola.js" />
     <Content Include="05-clipping.html" />
+    <Content Include="05-sonic.js" />
     <Content Include="05-spritesheet.js" />
     <Content Include="05-teste-spritesheet-1.html" />
+    <Content Include="geral.css" />
     <Content Include="imagens\explosao.png" />
     <Content Include="imagens\ovni.png" />
     <Content Include="05-spritesheet.png" />
     <Content Include="teclado-teste-01.html" />
     <Content Include="teclado-teste-02.html" />
     <Content Include="teclado.js" />
+    <Content Include="05-teste-spritesheet-2.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

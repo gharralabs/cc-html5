@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Testando movimentação do SONIC</title>
+    <link href="geral.css" rel="stylesheet" />
+    
+    <script src="05-spritesheet.js"></script>
+    <script src="04-animacao.js"></script>
+    <script src="teclado.js"></script>
+    <script src="05-sonic.js"></script>
+
+
+    <script>
+
+        window.onload = function () {
+            var canvas = document.getElementById('gameCanvas');
+            var context = canvas.getContext('2d');
+
+            var teclado = new Teclado(document);
+            var animacao = new Animacao(context);
+
+            var imgSonic = new Image();
+            imgSonic.src = '05-spritesheet.png';
+
+
+            var sonic = new Sonic(context, teclado, imgSonic);
+            sonic.x = 0;
+            sonic.y = 200;
+            animacao.novoSprite(sonic);
+
+
+            imgSonic.onload = function () {
+                animacao.ligar();
+            }
+
+
+        }
+
+    </script>
+</head>
+<body>
+    <canvas id="gameCanvas" width="640" height="480"></canvas>
+</body>
+</html>
