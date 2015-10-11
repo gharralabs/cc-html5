@@ -71,8 +71,12 @@
     <Content Include="04-animacao-teste.html" />
     <Content Include="04-animacao.js" />
     <Content Include="04-bola.js" />
+    <Content Include="05-clipping.html" />
+    <Content Include="05-spritesheet.js" />
+    <Content Include="05-teste-spritesheet-1.html" />
     <Content Include="imagens\explosao.png" />
     <Content Include="imagens\ovni.png" />
+    <Content Include="05-spritesheet.png" />
     <Content Include="teclado-teste-01.html" />
     <Content Include="teclado-teste-02.html" />
     <Content Include="teclado.js" />
