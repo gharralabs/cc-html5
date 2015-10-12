@@ -78,12 +78,15 @@
     <Content Include="05-teste-spritesheet-1.html" />
     <Content Include="06-colisor.js" />
     <Content Include="07-fundo.js" />
+    <Content Include="07-nave.js" />
     <Content Include="07-teste-fundo.html" />
+    <Content Include="07-teste-nave.html" />
     <Content Include="geral.css" />
     <Content Include="imagens\explosao.png" />
     <Content Include="imagens\fundo-espaco.png" />
     <Content Include="imagens\fundo-estrelas.png" />
     <Content Include="imagens\fundo-nuvens.png" />
+    <Content Include="imagens\nave.png" />
     <Content Include="imagens\ovni.png" />
     <Content Include="05-spritesheet.png" />
     <Content Include="teclado-teste-01.html" />
