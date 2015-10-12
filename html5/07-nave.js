@@ -40,5 +40,10 @@ Nave.prototype = {
             this.imagem.width,
             this.imagem.height);
 
+    },
+
+    atirar: function () {
+        var t = new Tiro(this.context, this);
+        this.animacao.novoSprite(t);
     }
 }

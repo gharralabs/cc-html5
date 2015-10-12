@@ -68,6 +68,7 @@
     <Content Include="01-primitivas.html" />
     <Content Include="02-imagens.html" />
     <Content Include="03-bola.html" />
+    <Content Include="07-animacao.js" />
     <Content Include="04-animacao-teste.html" />
     <Content Include="04-animacao.js" />
     <Content Include="06-bola.js" />
@@ -80,7 +81,9 @@
     <Content Include="07-fundo.js" />
     <Content Include="07-nave.js" />
     <Content Include="07-teste-fundo.html" />
+    <Content Include="07-teste-tiro.html" />
     <Content Include="07-teste-nave.html" />
+    <Content Include="07-tiro.js" />
     <Content Include="geral.css" />
     <Content Include="imagens\explosao.png" />
     <Content Include="imagens\fundo-espaco.png" />
