@@ -55,6 +55,15 @@ Bola.prototype = {
     },
 
     colidiuCom: function (sprite) {
-        alert('PÁ!');
+
+        if (this.x < sprite.x)
+            this.velocidadeX = -Math.abs(this.velocidadeX);
+        else
+            this.velocidadeX = Math.abs(this.velocidadeX);
+
+        if (this.y < sprite.y)
+            this.velocidadeY = -Math.abs(this.velocidadeY);
+        else
+            this.velocidadeY = Math.abs(this.velocidadeY);
     }
 }
