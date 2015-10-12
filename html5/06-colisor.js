@@ -9,13 +9,34 @@ Colisor.prototype = {
     },
 
     processar: function () {
+
+        var jaTestados = new Object();
+
         for( var i in this.sprites ){
             for (var j in this.sprites) {
 
                 if (i == j)
                     continue;
 
-                this.testarColisao(this.sprites[i], this.sprites[j]);
+
+                var id1 = this.stringUnica(this.sprites[i]);
+                var id2 = this.stringUnica(this.sprites[j]);
+
+                if (!jaTestados[id1])
+                    jaTestados[id1] = [];
+
+                if (!jaTestados[id2])
+                    jaTestados[id2] = [];
+
+                if(! (jaTestados[id1].indexOf(id2) >= 0 || 
+                      jaTestados[id2].indexOf(id1) >= 0)) {
+
+                    this.testarColisao(this.sprites[i], this.sprites[j]);
+                    jaTestados[id1].push(id2);
+                    jaTestados[id2].push(id1);
+                }
+
+                
             }
         }
     },
@@ -42,6 +63,21 @@ Colisor.prototype = {
                 ret1.x < ( ret2.x + ret2.largura) && 
                (ret1.y + ret1.altura) > ret2.y &&
                 ret1.y < ( ret2.y + ret2.altura);
+    },
+
+    stringUnica: function (sprite) {
+        var str = '';
+        var retangulos = sprite.retangulosColiscao();
+
+        for(var i in retangulos )
+        {
+            str += 'x:' + retangulos[i].x       + ',' +
+                   'y:' + retangulos[i].y       + ',' +
+                   'l:' + retangulos[i].largura + ',' +
+                   'a:' + retangulos[i].altura  + '\n';
+        }
+
+        return str;
     }
 
 
