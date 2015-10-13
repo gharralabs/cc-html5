@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Inimigos</title>
+    
+    <script src="07-animacao.js"></script>
+    <script src="teclado.js"></script>
+    <script src="07-nave.js"></script>
+    <script src="07-tiro.js"></script>
+    <script src="06-colisor.js"></script>
+    <script src="08-ovni.js"></script>
+
+    <script>
+
+
+        window.onload = function () {
+
+            var canvas = document.getElementById('gameCanvas');
+            var context = canvas.getContext('2d');
+
+            var imgNave = new Image();
+            imgNave.src = 'imagens/nave.png';
+            imgNave.onload = carregando;
+
+            var imgOvni = new Image();
+            imgOvni.src = 'imagens/ovni.png';
+            imgOvni.onload = carregando;
+
+            var carregados = 0;
+
+            function carregando() {
+                carregados++;
+                if (carregados == 2)
+                    iniciar();
+            }
+
+            var teclado = new Teclado(document);
+            var animacao = new Animacao(context);
+
+            var nave = new Nave(context, teclado, imgNave);
+            animacao.novoSprite(nave);
+
+
+            var colisor = new Colisor();
+            colisor.novoSprite(nave);
+
+
+            teclado.disparou(ESPACO, function () {
+                nave.atirar();
+            });
+
+            function iniciar() {
+                nave.x = canvas.width;
+                nave.y = canvas.height - imgNave.height;
+                nave.velocidade = 5;
+                animacao.ligar();
+
+                setInterval(novoOvni, 1000);
+            }
+
+
+            function novoOvni() {
+                var ovni = new Ovni(context, imgOvni);
+                // mínimo 5; máximo 20
+                ovni.velocidade = 5 + Math.random() * (20 - 5 + 1);
+                ovni.x = Math.floor(Math.random() * (canvas.width - imgOvni.width + 1));
+                ovni.y = -imgOvni.height;
+                animacao.novoSprite(ovni);
+                colisor.novoSprite(ovni);
+            }
+        }
+    </script>
+</head>
+<body>
+    <canvas id="gameCanvas"
+            width="500" height="500">
+        Seu navegador não suporta HTML5 Canvas.
+    </canvas>
+</body>
+</html>

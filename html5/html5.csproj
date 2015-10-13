@@ -84,6 +84,7 @@
     <Content Include="07-teste-tiro.html" />
     <Content Include="07-teste-nave.html" />
     <Content Include="07-tiro.js" />
+    <Content Include="08-teste-inimigos.html" />
     <Content Include="geral.css" />
     <Content Include="imagens\explosao.png" />
     <Content Include="imagens\fundo-espaco.png" />
@@ -92,6 +93,7 @@
     <Content Include="imagens\nave.png" />
     <Content Include="imagens\ovni.png" />
     <Content Include="05-spritesheet.png" />
+    <Content Include="08-ovni.js" />
     <Content Include="teclado-teste-01.html" />
     <Content Include="teclado-teste-02.html" />
     <Content Include="teclado.js" />
