@@ -1,4 +1,4 @@
-﻿function Animacao(context) {
+function Animacao(context) {
     this.sprites = [];
     this.ligado = false;
     this.context = context;
@@ -97,7 +97,7 @@ Animacao.prototype = {
         this.spritesExcluir = [];
         this.processamentosExcluir = [];
 
-        this.spritesExcluir = novoSprites;
+        this.sprites = novoSprites;
         this.processamentos = novoProcessamentos;
     }
 

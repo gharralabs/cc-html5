@@ -1,10 +1,14 @@
-function Nave(context, teclado, imagem) {
+function Nave(context, teclado, imagem ) {
     this.context = context;
     this.teclado = teclado;
     this.imagem = imagem;
     this.x = 0;
     this.y = 0;
     this.velocidade = 0;
+
+    this.spritesheet = new Spritesheet(context, imagem, 3, 2);
+    this.spritesheet.linha = 0;
+    this.spritesheet.intervalo = 100;
 }
 
 Nave.prototype = {
@@ -18,7 +22,7 @@ Nave.prototype = {
         }
 
         if(this.teclado.pressionada(SETA_DIREITA) &&
-            this.x + this.imagem.width < this.context.canvas.width) {
+            this.x + 36 < this.context.canvas.width) {
             this.x += incremento;
         }
 
@@ -28,7 +32,7 @@ Nave.prototype = {
         }
 
         if(this.teclado.pressionada(SETA_ABAIXO) && 
-            this.y + this.imagem.height < this.context.canvas.height) {
+            this.y + 48 < this.context.canvas.height) {
             this.y += incremento;
         }
 
@@ -37,11 +41,15 @@ Nave.prototype = {
 
     desenhar: function () {
 
-        this.context.drawImage(this.imagem,
-            this.x, this.y,
-            this.imagem.width,
-            this.imagem.height);
+        if (this.teclado.pressionada(SETA_ESQUERDA))
+            this.spritesheet.linha = 1;
+        else if(this.teclado.pressionada(SETA_DIREITA))
+            this.spritesheet.linha = 2;
+        else
+            this.spritesheet.linha = 0;
 
+        this.spritesheet.desenhar(this.x, this.y);
+        this.spritesheet.proximoQuadro();
     },
 
     atirar: function () {
@@ -61,17 +69,17 @@ Nave.prototype = {
             ];
 
 
-        var ctx = this.context;
+        //var ctx = this.context;
 
-        for (var i in rets) {
-            ctx.save();
-            ctx.strokeStyle = 'yellow';
-            ctx.strokeRect(rets[i].x,
-                rets[i].y,
-                rets[i].largura,
-                rets[i].altura);
-            ctx.restore();
-        }
+        //for (var i in rets) {
+        //    ctx.save();
+        //    ctx.strokeStyle = 'yellow';
+        //    ctx.strokeRect(rets[i].x,
+        //        rets[i].y,
+        //        rets[i].largura,
+        //        rets[i].altura);
+        //    ctx.restore();
+        //}
 
         return rets;
     },
