@@ -68,6 +68,9 @@
     <Content Include="01-primitivas.html" />
     <Content Include="02-imagens.html" />
     <Content Include="03-bola.html" />
+    <Content Include="09-nave.js" />
+    <Content Include="09-fundo.js" />
+    <Content Include="09-animacao.js" />
     <Content Include="08-colisor.js" />
     <Content Include="08-tiro.js" />
     <Content Include="08-nave.js" />
@@ -91,11 +94,13 @@
     <Content Include="08-teste-colisao-inimigos.html" />
     <Content Include="08-teste-inimigos-fundo.html" />
     <Content Include="08-teste-inimigos.html" />
+    <Content Include="09-jogo-definitivo.html" />
     <Content Include="geral.css" />
     <Content Include="imagens\explosao.png" />
     <Content Include="imagens\fundo-espaco.png" />
     <Content Include="imagens\fundo-estrelas.png" />
     <Content Include="imagens\fundo-nuvens.png" />
+    <Content Include="imagens\nave-spritesheet.png" />
     <Content Include="imagens\nave.png" />
     <Content Include="imagens\ovni.png" />
     <Content Include="05-spritesheet.png" />
