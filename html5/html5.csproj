@@ -100,6 +100,7 @@
     <Content Include="08-teste-inimigos.html" />
     <Content Include="09-jogo-definitivo.html" />
     <Content Include="geral.css" />
+    <Content Include="imagens\botao-jogar.png" />
     <Content Include="imagens\explosao.png" />
     <Content Include="imagens\fundo-espaco.png" />
     <Content Include="imagens\fundo-estrelas.png" />
@@ -109,6 +110,9 @@
     <Content Include="imagens\ovni.png" />
     <Content Include="05-spritesheet.png" />
     <Content Include="08-ovni.js" />
+    <Content Include="sons\explosao.mp3" />
+    <Content Include="sons\musica-acao.mp3" />
+    <Content Include="sons\tiro.mp3" />
     <Content Include="teclado-teste-01.html" />
     <Content Include="teclado-teste-02.html" />
     <Content Include="teclado.js" />
