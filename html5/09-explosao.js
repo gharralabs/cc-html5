@@ -1,4 +1,4 @@
-﻿function Explosao(context, imagem, x, y) {
+function Explosao(context, imagem, x, y) {
 
     this.context = context;
     this.imagem = imagem;
@@ -9,8 +9,11 @@
 
 
     var explosao = this;
+    this.fimExplosao = null;
     this.spritesheet.fimCiclo = function () {
         explosao.animacao.excluirSprite(explosao);
+        if (explosao.fimExplosao)
+            explosao.fimExplosao();
     }
 }
 

@@ -1,4 +1,4 @@
-function Nave(context, teclado, imagem ) {
+function Nave(context, teclado, imagem, imgExplosao ) {
     this.context = context;
     this.teclado = teclado;
     this.imagem = imagem;
@@ -9,6 +9,8 @@ function Nave(context, teclado, imagem ) {
     this.spritesheet = new Spritesheet(context, imagem, 3, 2);
     this.spritesheet.linha = 0;
     this.spritesheet.intervalo = 100;
+
+    this.imgExplosao = imgExplosao;
 }
 
 Nave.prototype = {
@@ -87,8 +89,28 @@ Nave.prototype = {
     colidiuCom: function (outro) {
 
         if (outro instanceof Ovni) {
-            this.animacao.desligar();
-            alert('GAME OVER');
+
+            this.animacao.excluirSprite(this);
+            this.animacao.excluirSprite(outro);
+            this.colisor.excluirSprite(this);
+            this.colisor.excluirSprite(outro);
+
+            var exp1 = new Explosao(this.context, this.imgExplosao,
+                this.x, this.y);
+
+            exp1.fimExplosao = function () {
+                this.animacao.desligar();
+                alert('GAME OVER');
+            }
+
+            var exp2 = new Explosao(this.context, this.imgExplosao,
+                outro.x, outro.y);
+
+            this.animacao.novoSprite(exp1);
+            this.animacao.novoSprite(exp2);
+
+            // this.animacao.desligar();
+            //alert('GAME OVER');
         }
 
     }
