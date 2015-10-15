@@ -68,6 +68,7 @@
     <Content Include="01-primitivas.html" />
     <Content Include="02-imagens.html" />
     <Content Include="03-bola.html" />
+    <Content Include="09-painel.js" />
     <Content Include="09-spritesheet.js" />
     <Content Include="09-explosao.js" />
     <Content Include="09-ovni.js" />

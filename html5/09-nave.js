@@ -11,6 +11,9 @@ function Nave(context, teclado, imagem, imgExplosao ) {
     this.spritesheet.intervalo = 100;
 
     this.imgExplosao = imgExplosao;
+
+    this.aoAcabarAsVidas = null;
+    this.vidas = 3;
 }
 
 Nave.prototype = {
@@ -71,18 +74,6 @@ Nave.prototype = {
             ];
 
 
-        //var ctx = this.context;
-
-        //for (var i in rets) {
-        //    ctx.save();
-        //    ctx.strokeStyle = 'yellow';
-        //    ctx.strokeRect(rets[i].x,
-        //        rets[i].y,
-        //        rets[i].largura,
-        //        rets[i].altura);
-        //    ctx.restore();
-        //}
-
         return rets;
     },
 
@@ -98,9 +89,21 @@ Nave.prototype = {
             var exp1 = new Explosao(this.context, this.imgExplosao,
                 this.x, this.y);
 
+            var nave = this;
+
             exp1.fimExplosao = function () {
-                this.animacao.desligar();
-                alert('GAME OVER');
+                nave.vidas--;
+
+                if (nave.vidas < 0) {
+
+                    if (nave.aoAcabarAsVidas)
+                        nave.aoAcabarAsVidas();
+
+                }
+                else {
+                    nave.colisor.novoSprite(nave);
+                    nave.animacao.novoSprite(nave);
+                }
             }
 
             var exp2 = new Explosao(this.context, this.imgExplosao,
@@ -109,9 +112,14 @@ Nave.prototype = {
             this.animacao.novoSprite(exp1);
             this.animacao.novoSprite(exp2);
 
-            // this.animacao.desligar();
-            //alert('GAME OVER');
         }
+
+    },
+
+    posicionar: function () {
+        var canvas = this.context.canvas;
+        this.x = canvas.width * 0.5 - 18;
+        this.y = canvas.height * 0.5 - 48;
 
     }
 
