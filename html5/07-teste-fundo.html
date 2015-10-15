@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Fundos rolando em parallax</title>
+    <script src="04-animacao.js"></script>
+    <script src="07-fundo.js"></script>
+
+    <script>
+
+        window.onload = function () {
+
+            var imgEspaco = new Image();
+            imgEspaco.src = 'imagens/fundo-espaco.png';
+
+            var imgEstrelas = new Image();
+            imgEstrelas.src = 'imagens/fundo-estrelas.png';
+
+            var imgNuvens = new Image();
+            imgNuvens.src = 'imagens/fundo-nuvens.png';
+
+            var carregadas = 0;
+            var total = 3;
+
+            imgEspaco.onload = carregando;
+            imgEstrelas.onload = carregando;
+            imgNuvens.onload = carregando;
+
+
+
+            function carregando() {
+                carregadas++;
+                if (carregadas == total)
+                    iniciar();
+            }
+
+            function iniciar() {
+                var canvas = document.getElementById('gameCanvas');
+                var context = canvas.getContext('2d');
+
+                var fundoEspaco = new Fundo(context, imgEspaco);
+                var fundoEstrelas = new Fundo(context, imgEstrelas);
+                var fundoNuvens = new Fundo(context, imgNuvens);
+
+                fundoEspaco.velocidade = 3;
+                fundoEstrelas.velocidade = 7;
+                fundoEstrelas.velocidade = 10;
+
+
+                var animacao = new Animacao(context);
+                animacao.novoSprite(fundoEspaco);
+                animacao.novoSprite(fundoEstrelas);
+                animacao.novoSprite(fundoNuvens);
+
+                animacao.ligar();
+
+
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <canvas id="gameCanvas"
+            width="640"
+            height="480">
+        Seu navegador não suporta canvas
+    </canvas>
+</body>
+</html>
