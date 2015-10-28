@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\ftp.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -68,6 +69,7 @@
     <Content Include="01-primitivas.html" />
     <Content Include="02-imagens.html" />
     <Content Include="03-bola.html" />
+    <Content Include="10-jogo-definitivo.html" />
     <Content Include="09-painel.js" />
     <Content Include="09-spritesheet.js" />
     <Content Include="09-explosao.js" />
